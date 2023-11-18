@@ -1,0 +1,10 @@
+.header {
+  background-color: greenyellow;
+  padding: 30px;
+  text-align: center;
+  font-weight: bolder;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.2);
+  font-size: 50px;
+  width: auto;
+  margin-right: 0;
+}
