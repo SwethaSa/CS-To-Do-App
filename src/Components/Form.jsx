@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import styles from "./form.module.css";
 export default function Form({ todo, setTodo }) {
-  let [input, setInput] = useState("");
+  let [input, setInput] = useState({ name: "", status: false });
 
   let handleAdd = (e) => {
-    if (input === "") {
+    if (input.name === "") {
       alert("Please Enter an Item to Add");
       e.preventDefault();
     } else {
       e.preventDefault();
       setTodo([...todo, input]);
-      setInput("");
+      setInput({ name: "", status: false });
     }
   };
   return (
@@ -20,13 +20,12 @@ export default function Form({ todo, setTodo }) {
           placeholder="Enter an Item..."
           className={styles.input}
           onChange={(e) => {
-            setInput(e.target.value);
+            setInput({ name: e.target.value, status: false });
           }}
           type="text"
-          value={input}
+          value={input.name}
         />{" "}
         &nbsp;
-        {console.log(todo)}
         <button className={styles.btn} type="submit">
           Add
         </button>

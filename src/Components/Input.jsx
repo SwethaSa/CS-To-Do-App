@@ -9,7 +9,7 @@ export default function Input() {
     <>
       <Header />
       <Form todo={todo} setTodo={setTodo} />
-      <Items items={todo} />
+      <Items todo={todo} setTodo={setTodo} />
     </>
   );
 }

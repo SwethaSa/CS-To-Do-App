@@ -1,6 +1,6 @@
 .textbg {
   background-color: white;
-  padding: 1cm;
+  padding: 30px;
   border-radius: 10px;
   margin: 0 auto;
   margin-top: 1cm;
@@ -34,6 +34,12 @@
   cursor: pointer;
   background-color: rgb(123, 185, 29);
   color: white;
+}
+
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: chartreuse;
+  text-decoration-thickness: 5px;
 }
 
 @media screen and (max-width: 1000px) {
