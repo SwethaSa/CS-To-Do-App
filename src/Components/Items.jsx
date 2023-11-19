@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styles from "./items.module.css";
 
 export default function Items({ todo, setTodo }) {
+  let completed = todo.filter((completed) => completed.status).length;
+
+  let pending = todo.length - completed;
+
   let handleDelete = (val) => {
     let ans = prompt("Why do you delete this task??", "wrong");
 
@@ -29,6 +33,10 @@ export default function Items({ todo, setTodo }) {
 
   return (
     <>
+      <div className={styles.status}>
+        <h2>Completed:{completed}</h2>
+        <h2>Pending:{pending}</h2>
+      </div>
       {todo.map((val, index) => (
         <div className={styles.textbg}>
           <h3

@@ -10,6 +10,13 @@
   align-items: center;
   justify-content: space-between;
 }
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2cm;
+  margin: 10px 0;
+}
 
 .text {
   font-size: x-large;
@@ -58,5 +65,11 @@
   }
   .btn {
     padding: 5px;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  .status {
+    font-size: small;
   }
 }

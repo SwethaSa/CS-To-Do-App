@@ -13,6 +13,7 @@ export default function Form({ todo, setTodo }) {
       setInput({ name: "", status: false });
     }
   };
+
   return (
     <>
       <form className={styles.formbg} onSubmit={handleAdd}>
