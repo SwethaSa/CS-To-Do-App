@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./items.module.css";
 
 export default function Items({ todo, setTodo }) {
+  let [img, setImg] = useState(false);
   let completed = todo.filter((completed) => completed.status).length;
 
   let pending = todo.length - completed;
@@ -31,6 +32,20 @@ export default function Items({ todo, setTodo }) {
     }
   };
 
+  useEffect(() => {
+    if (completed !== 0 && completed === todo.length) {
+      setImg(true);
+      const timer = setTimeout(() => {
+        setImg(false);
+        alert(
+          `Yayyy!!! You've done everything you wanted to....I appreciate you`
+        );
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [completed, todo.length]);
+
   return (
     <>
       <div className={styles.status}>
@@ -54,6 +69,7 @@ export default function Items({ todo, setTodo }) {
           </button>
         </div>
       ))}
+      {img && <img className={styles.img} />}
     </>
   );
 }
