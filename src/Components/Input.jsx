@@ -8,7 +8,7 @@ export default function Input() {
   let sortedItem = todo
     .slice()
     .sort((a, b) => Number(a.status) - Number(b.status));
-  console.log(sortedItem);
+
   return (
     <>
       <Header />

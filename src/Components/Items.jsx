@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./items.module.css";
 
 export default function Items({ todo, setTodo }) {
-  let [img, setImg] = useState(false);
   let completed = todo.filter((completed) => completed.status).length;
 
   let pending = todo.length - completed;
@@ -32,25 +31,19 @@ export default function Items({ todo, setTodo }) {
     }
   };
 
-  useEffect(() => {
-    if (completed !== 0 && completed === todo.length) {
-      setImg(true);
-      const timer = setTimeout(() => {
-        setImg(false);
-        alert(
-          `Yayyy!!! You've done everything you wanted to....I appreciate you`
-        );
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [completed, todo.length]);
+  if (completed !== 0 && completed === todo.length) {
+    setTimeout(() => {
+      alert(
+        `Yayyy!!! You've done everything you wanted to....I appreciate you`
+      );
+    }, 2000);
+  }
 
   return (
     <>
       <div className={styles.status}>
-        <h2>Completed:{completed}</h2>
-        <h2>Pending:{pending}</h2>
+        <h2>Completed : {completed}</h2>
+        <h2>Pending : {pending}</h2>
       </div>
       {todo.map((val, index) => (
         <div className={styles.textbg}>
@@ -69,7 +62,6 @@ export default function Items({ todo, setTodo }) {
           </button>
         </div>
       ))}
-      {img && <img className={styles.img} />}
     </>
   );
 }
